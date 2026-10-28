@@ -1,0 +1,36 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Reports
+reports/allure-results/
+reports/allure-report/
+
+# Screenshots (generated during tests)
+screenshots/*.png
+
+# Environment variables
+.env
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# App binaries (optional - uncomment if not tracking)
+# apps/*.apk
+# apps/*.ipa
+
+# TypeScript cache
+*.tsbuildinfo
