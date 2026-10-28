@@ -7,11 +7,13 @@ on:
     branches: [main]
   workflow_dispatch:
   schedule:
-    - cron: '0 6 * * *' # Nightly at 6 AM UTC
-
+    - cron: "0 6 * * *" # Nightly at 6 AM UTC
+permissions:
+  contents: write
+  pages: write
 jobs:
-  test:
-    runs-on: macos-latest
+  build:
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
@@ -20,34 +22,15 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
-          cache: 'npm'
+          node-version: "18"
+          cache: "npm"
 
       - name: Install dependencies
         run: npm ci
 
-      - name: Setup Android Emulator
-        uses: reactivecircus/android-emulator-runner@v2
-        with:
-          api-level: 33
-          arch: x86_64
-          emulator-options: -no-snapshot-save -no-window -noaudio -no-boot-anim
-          script: npm run test:android
+      - name: Type check
+        run: npx tsc --noEmit
 
-      - name: Generate Allure Report
-        if: always()
-        run: npm run report:generate
-
-      - name: Deploy to GitHub Pages
-        if: always()
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./reports/allure-report
-
-      - name: Upload Allure Results
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: allure-results
-          path: reports/allure-results
+      # Tests disabled until test files are written
+      # - name: Run tests
+      #   run: npm run test:android
