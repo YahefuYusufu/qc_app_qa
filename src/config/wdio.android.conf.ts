@@ -5,15 +5,8 @@ import { Options } from "@wdio/types";
 export const config: Options.Testrunner = {
   ...baseConfig,
   capabilities: [androidCapabilities],
-  services: [
-    [
-      "appium",
-      {
-        args: {
-          address: "localhost",
-          port: 4723,
-        },
-      },
-    ],
-  ],
+  // Connect to already running Appium server
+  hostname: "localhost",
+  port: 4723,
+  services: [],
 };

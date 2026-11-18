@@ -1,15 +1,15 @@
-// Android - Samsung Galaxy S8+ (wirelessly connected)
-// Connects to already running app (Flutter debug mode)
+// Android - USB connected device
 export const androidCapabilities = {
   platformName: 'Android',
   'appium:automationName': 'UiAutomator2',
-  'appium:udid': '172.16.82.255:5555',
-  'appium:deviceName': 'SM G955F',
-  'appium:platformVersion': '9',
+  'appium:udid': 'ce0517154bb8261403',
+  'appium:deviceName': 'Android Device',
   'appium:noReset': true,
   'appium:fullReset': false,
   'appium:newCommandTimeout': 240,
-  // App should be open on device before running tests
+  // App launch settings - Quantum Connect Dev
+  'appium:appPackage': 'com.steelwrist.quantumconnect.dev',
+  'appium:appActivity': 'com.steelwrist.quantumconnect.MainActivity',
 };
 
 // iOS - iPhone 13 (wirelessly connected)
