@@ -16,13 +16,14 @@ export const androidCapabilities = {
 export const iosCapabilities = {
   platformName: 'iOS',
   'appium:automationName': 'XCUITest',
-  'appium:app': './apps/quantum-connect.ipa',
   'appium:udid': '00008110-00061C1E3630A01E',
   'appium:deviceName': "yahefu's iPhone13",
-  'appium:platformVersion': '26.6.2',
-  'appium:noReset': false,
+  'appium:platformVersion': '18.4',
+  'appium:noReset': true,
   'appium:fullReset': false,
   'appium:newCommandTimeout': 240,
+  // App launch settings - Quantum Connect Dev
+  'appium:bundleId': 'com.steelwrist.quantumconnect.dev',
 };
 
 // Alternative iOS device - iPhone 15 Pro
